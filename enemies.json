@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Bug",
+        "pre1": "no",
+        "pre2": "o",
+        "pre3": "um",
+        "health": 29,
+        "healthMax": 29,
+        "exp": 18,
+        "atkMelee": [
+            0,
+            23
+        ],
+        "loot": {
+            "Gold Coin": 10,
+            "Cherry": 2
+        }
+    },
+    {
+        "name": "Minotaur",
+        "pre1": "no",
+        "pre2": "o",
+        "pre3": "um",
+        "health": 100,
+        "healthMax": 100,
+        "exp": 50,
+        "atkMelee": [
+            10,
+            40
+        ],
+        "loot": {
+            "Gold Coin": 25,
+            "Meat": 2,
+            "Sword": 1,
+            "Axe": 1,
+            "Minotaur Horns": 2
+        }
+    },
+    {
+        "name": "Dragon",
+        "pre1": "no",
+        "pre2": "o",
+        "pre3": "um",
+        "health": 1000,
+        "healthMax": 1000,
+        "exp": 700,
+        "atkMelee": [
+            0,
+            130
+        ],
+        "loot": {
+            "Gold Coin": 110,
+            "Plate Legs": 1,
+            "Steel Shield": 1,
+            "Dragon Shield": 1
+        }
+    }
+]
