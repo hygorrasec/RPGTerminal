@@ -392,7 +392,7 @@ def battle():
 # ============|
 # PLAYER HEAL |
 # ============|
-def player_heal(potions: str):
+def player_heal(potions: int):
     while True:
         heal = input(Fore.GREEN + f'\nVocê possue {potions} poções de cura, deseja usar? (S para sim ou N para não): ')
         try:
