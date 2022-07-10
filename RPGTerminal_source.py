@@ -5,7 +5,7 @@ Período: 1o
 Disciplina: Pensamento Computacional
 Grupo: Fabrício Souza, Hygor Rasec e Victor Bernardo
 Tema escolhido: Game em Python no estilo RPG.
-Versão: 2.3
+Versão: 2.4
 
 '''
 
