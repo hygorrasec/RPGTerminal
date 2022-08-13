@@ -9,7 +9,7 @@ from colorama import Fore, init
 from passlib.hash import pbkdf2_sha256 as cryp
 
 from models.player_heal import player_heal
-from utils.helper import show_message
+from utils.helper import health_bar, show_message
 
 init()
 
@@ -261,7 +261,7 @@ def search_battle() -> None:
                 enemy = choice(read_enemies())
 
                 show_message(
-                    f'VOCÊ ENCONTROU {enemy["pre3"].upper()} {enemy["name"].upper()} COM {enemy["health"]} DE VIDA!')
+                    f'VOCÊ ENCONTROU {enemy["pre3"].upper()} {enemy["name"].upper()} COM [' + Fore.RED + health_bar(enemy["health"], enemy["healthMax"]) + Fore.MAGENTA + f'] {enemy["health"]}/{enemy["healthMax"]} DE VIDA!', 10)
                 sleep(1)
 
                 while True:
@@ -330,6 +330,7 @@ def battle() -> None:
                     int(account['atkMelee'][0]), int(account['atkMelee'][1]))
                 player_healthPotion = int(account['healthPotion'])
                 enemy_health = int(enemy['health'])
+                enemy_healthMax = int(enemy['healthMax'])
                 enemy_new_health = enemy_health - player_dmg
                 enemy_exp = int(enemy['exp'])
                 enemy_dmg = randint(
@@ -353,7 +354,7 @@ def battle() -> None:
 
                     elif player_dead == 0:
                         print(
-                            Fore.CYAN + f'Seu dano {enemy["pre1"]} {enemy["name"]} foi {player_dmg} e {enemy["pre2"]} deixou com {enemy_new_health} de vida.')
+                            Fore.CYAN + f'Seu dano {enemy["pre1"]} {enemy["name"]} foi {player_dmg} e {enemy["pre2"]} deixou com [' + Fore.RED + health_bar(enemy_new_health, enemy_healthMax) + Fore.CYAN + f'] {enemy_new_health}/{enemy_healthMax} de vida.')
                         enemy['health'] = enemy_new_health
                         sleep(1)
 
@@ -372,7 +373,7 @@ def battle() -> None:
                                 player_dead = 1
                             else:
                                 print(
-                                    Fore.CYAN + f'Sua vida era {player_health} e passou a ser {player_new_health}.')
+                                    Fore.CYAN + f'Sua vida atual é [' + Fore.RED + health_bar(account["health"], account["healthMax"]) + Fore.CYAN + f'] {player_new_health}/{account["healthMax"]}.')
                                 sleep(1)
                                 if player_healthPotion > 0:
                                     potion_now = player_heal(
@@ -381,7 +382,7 @@ def battle() -> None:
                                         account['health'] = player_healthMax
                                         account['healthPotion'] = potion_now
                                         show_message(
-                                            f'Sua vida foi restaurada e voltou a ter {player_healthMax} de vida!')
+                                            f'Sua vida foi restaurada e voltou a ter [' + Fore.RED + health_bar(account["health"], account["healthMax"]) + Fore.MAGENTA + f'] {player_healthMax}/{player_healthMax} de vida!', 10)
                                         sleep(1)
 
                         else:
